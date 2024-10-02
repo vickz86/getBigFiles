@@ -24,3 +24,15 @@ if($size -eq 0){
         Write-Host ""$file.Name" "$theSize.toString("F2")"mb"
     }
 }
+
+
+#print all file above inputed value
+if($size -ne 0){
+    foreach($file in $allFile){
+        $fileSize = $file.Length/1mb
+        if($fileSize -gt $size){
+            Write-Host ""$file.Name" "$fileSize.toString("F2")"mb"
+        }
+    }
+}
+

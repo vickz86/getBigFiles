@@ -17,8 +17,8 @@ $allFile = Get-ChildItem . -Recurse -File
 
 #find the 5 biggest file in current folder
 if($size -eq 0){
-    $toPrint= $allFile | Select-Object Name,Length | Sort-Object Length -Descending
-    $toPrint[0..4]
+    $toPrint= ($allFile | Select-Object Name,Length | Sort-Object Length -Descending)[0..4]
+    Write-Host ""
     foreach($file in $toPrint){
         $theSize = $file.Length/1mb
         Write-Host ""$file.Name" "$theSize.toString("F2")"mb"
